@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Classroom Seating Planner</title>
+<meta name="description" content="Design classroom seating charts with drag-and-drop, smart seating strategies and printable layouts.">
+<link rel="stylesheet" href="css/style.css">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('scsp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+</head>
+<body>
+<header class="nav">
+  <div class="logo"><span aria-hidden="true">🪑</span> Seating Planner</div>
+  <div class="nav-actions">
+    <button class="icon-btn" id="theme" aria-label="Toggle light or dark theme">🌓</button>
+    <a class="btn primary sm" href="planner.html">Open Planner</a>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="badge">✨ Free · Private · No sign-up</div>
+    <h1>Seating charts made <em>smart</em> and simple.</h1>
+    <p>Set up your classroom, add students, and arrange seats with drag-and-drop or one-click strategies. Print a clean chart in seconds.</p>
+    <a class="btn primary" href="planner.html">Plan a classroom →</a>
+    <a class="btn" href="#features">See features</a>
+    <div class="preview" aria-hidden="true">
+      <div class="pv-desk">FRONT OF CLASS</div>
+      <div class="pv-seats">
+        <i style="--c:var(--g0)"></i><i style="--c:var(--g0)"></i><i style="--c:var(--g1)"></i><i style="--c:var(--g1)"></i><i style="--c:var(--g2)"></i><i style="--c:var(--g2)"></i>
+        <i style="--c:var(--g0)"></i><i style="--c:var(--g0)"></i><i style="--c:var(--g1)"></i><i style="--c:var(--g1)"></i><i style="--c:var(--g2)"></i><i style="--c:var(--g2)"></i>
+        <i style="--c:var(--g3)"></i><i style="--c:var(--g3)"></i><i style="--c:var(--g4)"></i><i style="--c:var(--g4)"></i><i class="e"></i><i style="--c:var(--g5)"></i>
+        <i style="--c:var(--g3)"></i><i style="--c:var(--g3)"></i><i style="--c:var(--g4)"></i><i style="--c:var(--g4)"></i><i class="e"></i><i style="--c:var(--g5)"></i>
+      </div>
+    </div>
+  </section>
+  <section class="metrics">
+    <div><b>4</b><span>Seating strategies</span></div>
+    <div><b>0</b><span>Servers or sign-ups</span></div>
+    <div><b>100%</b><span>Private &amp; local</span></div>
+  </section>
+  <h2 class="section-title" id="features">Everything you need for a great classroom layout</h2>
+  <p class="section-sub">Built for teachers, friendly for students.</p>
+  <section class="features">
+    <article class="feature"><div class="ico">📐</div><h3>Custom layouts</h3><p>Choose rows and seats per row, and mark broken or unused seats as unavailable.</p></article>
+    <article class="feature"><div class="ico">🖱️</div><h3>Drag &amp; drop</h3><p>Move or swap students between seats. On touch screens, tap a student then tap a seat.</p></article>
+    <article class="feature"><div class="ico">🎲</div><h3>Random</h3><p>Shuffle everyone into fresh seats with a single click.</p></article>
+    <article class="feature"><div class="ico">🔤</div><h3>Alphabetical</h3><p>Fill the room in A–Z order for easy roll calls and substitutes.</p></article>
+    <article class="feature"><div class="ico">👥</div><h3>Group seating</h3><p>Cluster students into colour-coded pods for teamwork activities.</p></article>
+    <article class="feature"><div class="ico">⚖️</div><h3>Balanced mix</h3><p>Spread learning levels evenly so every row has a healthy mix.</p></article>
+    <article class="feature"><div class="ico">🔍</div><h3>Empty seat detection</h3><p>Instantly see open seats, unseated students and class capacity.</p></article>
+    <article class="feature"><div class="ico">🖨️</div><h3>Printable chart</h3><p>Generate a clean, print-ready seating chart with your class title.</p></article>
+    <article class="feature"><div class="ico">💾</div><h3>Auto-save</h3><p>Names and layouts are stored in your browser. Save named layouts to reuse.</p></article>
+  </section>
+  <section class="cta">
+    <h2>Ready to build your seating chart?</h2>
+    <p>Open the planner and have a class arranged in under a minute.</p>
+    <a class="btn" href="planner.html">Launch planner →</a>
+  </section>
+</main>
+<footer class="site">
+  <p>Built with HTML5, CSS3 and JavaScript · Data stored locally in your browser</p>
+  <p><strong>Prince Shepherd</strong></p>
+</footer>
+<script>
+document.getElementById('theme').onclick=()=>{const t=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=t;try{localStorage.setItem('scsp-theme',t)}catch(e){}};
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planner · Smart Classroom Seating</title>
+<link rel="stylesheet" href="css/style.css">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('scsp-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="index.html"><span aria-hidden="true">🪑</span> Seating Planner</a>
+  <div class="spacer"></div>
+  <button class="btn sm" id="sampleBtn">📋 Load sample class</button>
+  <button class="btn primary sm" id="printBtn">🖨️ Print chart</button>
+  <button class="icon-btn" id="themeBtn" aria-label="Toggle light or dark theme">🌓</button>
+</header>
+
+<div class="layout">
+  <aside class="side no-print">
+    <section class="card">
+      <h2>🏫 Classroom</h2>
+      <label class="f">Class name<input type="text" id="className" maxlength="50" placeholder="e.g. Grade 10 Biology"></label>
+      <div class="row">
+        <label class="f">Rows<input type="number" id="rows" min="1" max="12" value="5"></label>
+        <label class="f">Seats per row<input type="number" id="cols" min="1" max="12" value="6"></label>
+      </div>
+      <button class="btn block sm" id="applySize">Apply size</button>
+      <p class="hint">Tip: double-click an empty seat to mark it unavailable (or available again).</p>
+    </section>
+
+    <section class="card">
+      <h2>🎓 Students <span class="muted" id="studentCount"></span></h2>
+      <form class="row" id="addForm" style="gap:.4rem">
+        <input type="text" id="stuName" placeholder="Student name" maxlength="40" required aria-label="Student name" style="flex:2">
+        <select id="stuLevel" aria-label="Learning level" style="flex:1"><option value="M">Mid</option><option value="H">High</option><option value="L">Low</option></select>
+      </form>
+      <button class="btn primary block sm" form="addForm">Add student</button>
+      <details>
+        <summary class="hint" style="cursor:pointer">Add many at once</summary>
+        <textarea id="bulk" placeholder="One name per line (or comma separated)" style="margin:.5rem 0"></textarea>
+        <button class="btn block sm" id="bulkBtn">Add all</button>
+      </details>
+      <h2 style="margin-top:.3rem"><span class="muted">Unseated — drag onto a seat</span></h2>
+      <div class="pool" id="pool" aria-label="Unseated students"></div>
+    </section>
+
+    <section class="card">
+      <h2>✨ Seating strategies</h2>
+      <div class="strat">
+        <button class="btn" data-s="random">🎲 Random<small>Shuffle everyone</small></button>
+        <button class="btn" data-s="alpha">🔤 A–Z<small>Alphabetical</small></button>
+        <button class="btn" data-s="group">👥 Groups<small>Colour pods</small></button>
+        <button class="btn" data-s="balanced">⚖️ Balanced<small>Mix levels</small></button>
+      </div>
+      <label class="f">Group size (for Groups)<input type="number" id="groupSize" min="2" max="8" value="4"></label>
+      <button class="btn block sm danger" id="clearSeats">Clear all seating</button>
+    </section>
+
+    <section class="card">
+      <h2>💾 Saved layouts</h2>
+      <div class="row" style="gap:.4rem"><input type="text" id="layoutName" placeholder="Layout name" maxlength="30" aria-label="Layout name" style="flex:2"><button class="btn sm" id="saveLayout" style="flex:1">Save</button></div>
+      <div class="row" style="gap:.4rem"><select id="layoutSel" aria-label="Saved layouts" style="flex:2"></select><button class="btn sm" id="loadLayout">Load</button><button class="btn sm danger" id="delLayout" aria-label="Delete layout">🗑️</button></div>
+    </section>
+  </aside>
+
+  <main class="main">
+    <div class="stats no-print" id="stats"></div>
+    <section class="board-wrap">
+      <h1 class="board-title" id="boardTitle">Seating Chart</h1>
+      <p class="board-sub" id="boardSub"></p>
+      <div class="front">FRONT · TEACHER'S DESK</div>
+      <div class="board" id="board" role="grid" aria-label="Classroom seating"></div>
+      <div class="legend" id="legend"></div>
+      <p class="aisle-note no-print">Drag a student to move or swap seats. Drop on the unseated area to remove. On touch screens, tap a student, then tap a seat.</p>
+      <p class="print-foot">Prince Shepherd · Smart Classroom Seating Planner</p>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
